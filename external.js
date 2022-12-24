@@ -48,7 +48,7 @@ function playRound(playerSelection, computerSelection) {
 function game() {
 
     while(playerScore<5 && computerScore<5) {
-    console.log(playRound("Rock", getComputerChoice()));
+    console.log(playRound(prompt("Rock, Paper or Scissor?"), getComputerChoice()));
     console.log(`Score: ${playerScore} ${computerScore}`);
     }
 }
