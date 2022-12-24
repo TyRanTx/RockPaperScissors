@@ -1,3 +1,7 @@
+let playerScore = 0;
+let computerScore = 0;
+let round = 0;
+
 function getComputerChoice() {
     let randomValue = Math.floor(Math.random() * 3);
     switch (randomValue) {
@@ -14,23 +18,39 @@ function playRound(playerSelection, computerSelection) {
 
     playerSelectionLower = playerSelection.toLowerCase();
 
-    if (playerSelectionLower === computerSelection) {
-        return "It's a draw!" + ' Computer Selection was: ' + computerSelection;
-    }
-    else if(playerSelectionLower != 'rock' && playerSelectionLower !='paper' && playerSelectionLower !='scissor'){
+    if (playerSelectionLower != 'rock' && playerSelectionLower != 'paper' && playerSelectionLower != 'scissor') {
         return 'Wrong value';
     }
-    else if (playerSelectionLower === 'rock' && computerSelection === 'scissor') {
-        return 'You won' + ' Computer Selection was: ' + computerSelection;
+
+    if (playerSelectionLower === computerSelection) {
+        return "It's a tie!";
     }
-    else if (playerSelectionLower === 'scissor' && computerSelection === 'paper') {
-        return 'You won' + ' Computer Selection was: ' + computerSelection;
+
+    if (playerSelectionLower != 'rock' && playerSelectionLower != 'paper' && playerSelectionLower != 'scissor') {
+        return 'Wrong value';
     }
-    else if (playerSelectionLower === 'paper' && computerSelection === 'rock') {
-        return 'You won' + ' Computer Selection was: ' + computerSelection;
+
+    if ((playerSelectionLower === 'rock' && computerSelection === 'scissor') ||
+        (playerSelectionLower === 'scissor' && computerSelection === 'paper') ||
+        (playerSelectionLower === 'paper' && computerSelection === 'rock')) {
+        playerScore = playerScore + 1;
+
+        return 'You won';
     }
-    else
-        return 'You lost' + ' Computer Selection was: ' + computerSelection;
+
+    else {
+        computerScore = computerScore + 1;
+
+        return 'You lost';
+    }
 }
 
-console.log(playRound('ScissoR', getComputerChoice()));
+function game() {
+
+    while(playerScore<5 && computerScore<5) {
+    console.log(playRound("Rock", getComputerChoice()));
+    console.log(`Score: ${playerScore} ${computerScore}`);
+    }
+}
+
+game();
