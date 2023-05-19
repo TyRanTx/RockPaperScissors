@@ -18,16 +18,8 @@ function playRound(playerSelection, computerSelection) {
 
     let playerSelectionLower = playerSelection.toLowerCase();
 
-    if (playerSelectionLower != 'rock' && playerSelectionLower != 'paper' && playerSelectionLower != 'scissor') {
-        return 'Wrong value';
-    }
-
     if (playerSelectionLower === computerSelection) {
         return "It's a tie!";
-    }
-
-    if (playerSelectionLower != 'rock' && playerSelectionLower != 'paper' && playerSelectionLower != 'scissor') {
-        return 'Wrong value';
     }
 
     if ((playerSelectionLower === 'rock' && computerSelection === 'scissor') ||
@@ -45,12 +37,25 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-
-    while (playerScore < 5 && computerScore < 5) {
-        console.log(playRound(prompt("Rock, Paper or Scissor?"), getComputerChoice()));
-        console.log(`Score: ${playerScore} ${computerScore}`);
+function submit() {
+    if (playerScore < 5 && computerScore < 5) {
+        result.textContent = playRound(this.id, getComputerChoice());
+        score.textContent = `Score: ${playerScore} ${computerScore}`;
     }
 }
 
-game();
+const container = document.querySelector('#container');
+
+const result = document.createElement('div');
+result.setAttribute('id', 'result');
+container.appendChild(result);
+
+const score = document.createElement('div');
+result.setAttribute('id', 'score');
+container.appendChild(score);
+
+const btn = document.querySelectorAll(".btn");
+
+btn.forEach(element => {
+    element.addEventListener('click', submit);
+})
