@@ -16,7 +16,7 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
 
-    playerSelectionLower = playerSelection.toLowerCase();
+    let playerSelectionLower = playerSelection.toLowerCase();
 
     if (playerSelectionLower != 'rock' && playerSelectionLower != 'paper' && playerSelectionLower != 'scissor') {
         return 'Wrong value';
@@ -47,9 +47,9 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
 
-    while(playerScore<5 && computerScore<5) {
-    console.log(playRound(prompt("Rock, Paper or Scissor?"), getComputerChoice()));
-    console.log(`Score: ${playerScore} ${computerScore}`);
+    while (playerScore < 5 && computerScore < 5) {
+        console.log(playRound(prompt("Rock, Paper or Scissor?"), getComputerChoice()));
+        console.log(`Score: ${playerScore} ${computerScore}`);
     }
 }
 
