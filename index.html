@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>Page Title</title>
-  <script src="external.js" defer></script>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
+
 <body>
 
-<button id="rock" class="btn">Rock</button>
-<button id="paper" class="btn">Paper</button>
-<button id="scissor" class="btn">Scissor</button>
+  <div id="header-container">
+    <div id="header">Rock Paper Scissors!</div>
+  </div>
 
-<div id="container"></div>
+  <div id="selection-container">
+    <div id="pselection-container">
+      <div id="pselection"></div>
+      <div class="text">You</div>
+    </div>
+    <div class="score">Score: <span id="playerScore">0</span> <span id="computerScore">0</span>
+    <div id="result"></div> </div>
+    <div id="cselection-container">
+      <div id="cselection"></div>
+      <div class="text">Computer</div>
+
+    </div>
+  </div>
+
+  <div class="btn-container">
+    <button class="btn" id="rock"></button>
+    <button class="btn" id="paper"></button>
+    <button class="btn" id="scissor"></button>
+  </div>
+
+  <div id="footer-container">
+    <div id="footer">Made with &hearts; by Sam <a href="https://github.com/TyRanTx" style="color: inherit";><i class="fa fa-github" style="font-size:28px; padding-left: 15px; opacity: 1;"></i></a> </div>
+    
+  </div>
+
 
 </body>
-</html>
 
+</html>
